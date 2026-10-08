@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuoteVault — 100 Well-Known Quotes</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo">
+                <span class="logo-icon">❝</span>
+                <div>
+                    <h1>QuoteVault</h1>
+                    <p class="subtitle">Curated wisdom from 100 timeless thinkers & leaders</p>
+                </div>
+            </div>
+            <div class="header-badge">
+                <span id="total-count-badge" class="badge">100 Quotes</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="app-main">
+            <!-- Hero Random Quote Spotlight -->
+            <section class="hero-section">
+                <div class="section-label">Featured Quote</div>
+                <div class="quote-card spotlight-card" id="spotlight-card">
+                    <div class="quote-icon">“</div>
+                    <blockquote class="quote-text" id="spotlight-quote">
+                        Loading inspirational quote...
+                    </blockquote>
+                    <div class="quote-footer">
+                        <div class="quote-meta">
+                            <cite class="quote-author" id="spotlight-author">—</cite>
+                            <span class="category-pill" id="spotlight-category">General</span>
+                        </div>
+                        <div class="quote-actions">
+                            <button id="btn-copy-spotlight" class="btn btn-secondary" title="Copy to clipboard">
+                                <span class="btn-icon">📋</span> Copy
+                            </button>
+                            <button id="btn-share-spotlight" class="btn btn-secondary" title="Share on X (Twitter)">
+                                <span class="btn-icon">𝕏</span> Share
+                            </button>
+                            <button id="btn-random" class="btn btn-primary" title="Get another random quote">
+                                <span class="btn-icon">🎲</span> New Quote
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Search & Filter Controls -->
+            <section class="explorer-section">
+                <div class="explorer-header">
+                    <h2>Explore & Search Quotes</h2>
+                    <p>Filter by author, explore specific categories, or search quotes instantly.</p>
+                </div>
+
+                <div class="filter-toolbar">
+                    <!-- Search Input -->
+                    <div class="search-box">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="search-input" placeholder="Search by quote text, author, or keyword..." autocomplete="off">
+                        <button id="btn-clear-search" class="clear-btn" style="display: none;" title="Clear search">✕</button>
+                    </div>
+
+                    <!-- Filter Dropdowns -->
+                    <div class="dropdown-group">
+                        <div class="select-wrapper">
+                            <label for="category-select">Category</label>
+                            <select id="category-select">
+                                <option value="">All Categories</option>
+                            </select>
+                        </div>
+
+                        <div class="select-wrapper">
+                            <label for="author-select">Author</label>
+                            <select id="author-select">
+                                <option value="">All Authors</option>
+                            </select>
+                        </div>
+
+                        <button id="btn-reset-filters" class="btn btn-outline" title="Reset all filters">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Category Quick Pills -->
+                <div class="category-pills-container" id="category-pills">
+                    <!-- Generated via Vanilla JS -->
+                </div>
+
+                <!-- Results Header & Counter -->
+                <div class="results-header">
+                    <span id="results-count" class="results-count">Showing quotes</span>
+                    <div class="view-toggle">
+                        <button id="btn-show-all" class="btn btn-ghost btn-sm">Show All 100 Quotes</button>
+                    </div>
+                </div>
+
+                <!-- Quotes Grid -->
+                <div class="quotes-grid" id="quotes-grid">
+                    <!-- Dynamic Quote Cards loaded via JS -->
+                </div>
+
+                <!-- Empty State -->
+                <div class="empty-state" id="empty-state" style="display: none;">
+                    <div class="empty-icon">🔎</div>
+                    <h3>No matching quotes found</h3>
+                    <p>Try searching with different keywords, authors, or selecting "All Categories".</p>
+                    <button id="btn-empty-reset" class="btn btn-primary">Reset Filters</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>Built with <strong>Python Flask</strong>, <strong>Vanilla JavaScript</strong> & <strong>HTML5/CSS3</strong></p>
+        </footer>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast" class="toast">Quote copied to clipboard!</div>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
